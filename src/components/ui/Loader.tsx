@@ -1,12 +1,9 @@
 import React from 'react';
 
 const Loader: React.FC = () => (
-    <div className="flex items-center justify-center min-h-[40vh]">
-        <div className="relative">
-            <div className="w-16 h-16 border-4 border-primary/30 rounded-full animate-spin border-t-primary" />
-            <div className="absolute inset-0 w-16 h-16 border-4 border-transparent rounded-full animate-ping border-t-accent opacity-20" />
-        </div>
+    <div className="flex items-center justify-center py-20">
+        <div className="w-10 h-10 border-3 border-slate-200 border-t-indigo-500 rounded-full animate-spin" />
     </div>
 );
 
-export default React.memo(Loader);
+export default Loader;

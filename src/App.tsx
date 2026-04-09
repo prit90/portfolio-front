@@ -56,9 +56,11 @@ const App: React.FC = () => {
               duration: 3000,
               style: {
                 borderRadius: '12px',
-                background: '#1e293b',
-                color: '#e2e8f0',
+                background: '#ffffff',
+                color: '#0f172a',
                 fontSize: '14px',
+                border: '1px solid #e2e8f0',
+                boxShadow: '0 4px 20px rgba(0,0,0,0.08)',
               },
             }}
           />

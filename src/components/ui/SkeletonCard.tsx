@@ -1,18 +1,19 @@
 import React from 'react';
-import { useTheme } from '../../context/ThemeContext';
 
-const SkeletonCard: React.FC = () => {
-    const { theme } = useTheme();
-    const isDark = theme === 'dark';
-
-    return (
-        <div className={`rounded-xl p-6 animate-pulse ${isDark ? 'bg-dark-card' : 'bg-light-card'}`}>
-            <div className={`h-40 rounded-lg mb-4 ${isDark ? 'bg-dark-border' : 'bg-light-border'}`} />
-            <div className={`h-5 rounded w-3/4 mb-3 ${isDark ? 'bg-dark-border' : 'bg-light-border'}`} />
-            <div className={`h-4 rounded w-full mb-2 ${isDark ? 'bg-dark-border' : 'bg-light-border'}`} />
-            <div className={`h-4 rounded w-2/3 ${isDark ? 'bg-dark-border' : 'bg-light-border'}`} />
+const SkeletonCard: React.FC = () => (
+    <div className="rounded-xl overflow-hidden bg-white border border-slate-100 shadow-sm animate-pulse">
+        <div className="h-1 bg-slate-200" />
+        <div className="p-7">
+            <div className="w-12 h-12 rounded-xl bg-slate-200 mb-5" />
+            <div className="h-5 bg-slate-200 rounded mb-2 w-3/4" />
+            <div className="h-4 bg-slate-100 rounded mb-1 w-full" />
+            <div className="h-4 bg-slate-100 rounded mb-5 w-5/6" />
+            <div className="flex gap-2">
+                <div className="h-5 w-14 bg-slate-100 rounded" />
+                <div className="h-5 w-14 bg-slate-100 rounded" />
+            </div>
         </div>
-    );
-};
+    </div>
+);
 
-export default React.memo(SkeletonCard);
+export default SkeletonCard;
