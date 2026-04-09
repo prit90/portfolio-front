@@ -1,6 +1,6 @@
 import React from 'react';
-import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
+import { motion } from 'framer-motion';
 import { useTheme } from '../context/ThemeContext';
 
 const NotFoundPage: React.FC = () => {
@@ -8,24 +8,18 @@ const NotFoundPage: React.FC = () => {
     const isDark = theme === 'dark';
 
     return (
-        <section className="min-h-screen flex items-center justify-center px-4 pt-16">
+        <section className="min-h-screen flex items-center justify-center px-6 text-center">
             <motion.div
-                initial={{ opacity: 0, scale: 0.9 }}
-                animate={{ opacity: 1, scale: 1 }}
-                className="text-center"
+                initial={{ opacity: 0, y: 30 }}
+                animate={{ opacity: 1, y: 0 }}
             >
-                <h1 className="text-8xl md:text-9xl font-bold gradient-text mb-4">404</h1>
-                <h2 className={`text-2xl md:text-3xl font-semibold mb-4 ${isDark ? 'text-dark-text' : 'text-light-text'}`}>
-                    Page Not Found
-                </h2>
-                <p className={`text-lg mb-8 max-w-md mx-auto ${isDark ? 'text-dark-muted' : 'text-light-muted'}`}>
-                    Oops! The page you're looking for doesn't exist or has been moved.
+                <p className="text-8xl font-black gradient-text mb-4">404</p>
+                <h1 className="text-2xl font-bold mb-3">Page Not Found</h1>
+                <p className={`mb-8 ${isDark ? 'text-dark-muted' : 'text-light-muted'}`}>
+                    The page you're looking for doesn't exist.
                 </p>
-                <Link
-                    to="/"
-                    className="px-8 py-3 rounded-xl gradient-bg text-white font-medium shadow-lg shadow-primary/30 hover:shadow-xl transition-all duration-300 inline-block"
-                >
-                    Go Back Home
+                <Link to="/" className="px-6 py-3 rounded-xl gradient-bg text-white font-semibold shadow-lg shadow-primary/25 hover:-translate-y-0.5 transition-all duration-200 inline-block">
+                    Back to Home
                 </Link>
             </motion.div>
         </section>

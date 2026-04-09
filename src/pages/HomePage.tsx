@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { FiArrowDown, FiGithub, FiLinkedin, FiMapPin } from 'react-icons/fi';
+import { FiArrowDown, FiGithub, FiLinkedin, FiMapPin, FiDownload } from 'react-icons/fi';
 import { Link } from 'react-router-dom';
 import { useTheme } from '../context/ThemeContext';
 
@@ -9,113 +9,129 @@ const HomePage: React.FC = () => {
     const isDark = theme === 'dark';
 
     return (
-        <section className="min-h-screen flex items-center justify-center relative overflow-hidden pt-16">
-            {/* Animated background blobs */}
+        <section className={`min-h-screen flex items-center justify-center relative overflow-hidden pt-16 dot-grid`}>
+            {/* Background blobs */}
             <div className="absolute inset-0 overflow-hidden pointer-events-none">
-                <div className="absolute -top-40 -right-40 w-80 h-80 bg-primary/20 rounded-full blur-3xl animate-pulse" />
-                <div className="absolute -bottom-40 -left-40 w-80 h-80 bg-accent/20 rounded-full blur-3xl animate-pulse delay-1000" />
-                <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-primary/10 rounded-full blur-3xl animate-pulse delay-500" />
+                <div className="absolute top-1/4 -right-32 w-96 h-96 bg-primary/10 rounded-full blur-3xl" />
+                <div className="absolute bottom-1/4 -left-32 w-96 h-96 bg-accent/10 rounded-full blur-3xl" />
             </div>
 
-            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-                <div className="text-center">
-                    <motion.div
-                        initial={{ opacity: 0, scale: 0.5 }}
-                        animate={{ opacity: 1, scale: 1 }}
-                        transition={{ duration: 0.5 }}
-                        className="mb-6"
-                    >
-                        <div className="w-32 h-32 mx-auto rounded-full gradient-bg flex items-center justify-center text-white text-4xl font-bold shadow-2xl shadow-primary/30">
-                            MC
-                        </div>
-                    </motion.div>
+            <div className="max-w-5xl mx-auto px-6 relative z-10 text-center">
+                {/* Badge */}
+                <motion.div
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.5 }}
+                    className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border mb-8 text-sm font-medium"
+                    style={{ borderColor: 'rgba(99,102,241,0.3)', background: 'rgba(99,102,241,0.08)', color: '#818cf8' }}
+                >
+                    <span className="w-2 h-2 rounded-full bg-green-400 animate-pulse" />
+                    Available for opportunities
+                </motion.div>
 
-                    <motion.p
-                        initial={{ opacity: 0, y: 20 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        transition={{ delay: 0.2 }}
-                        className={`text-sm font-medium tracking-widest uppercase mb-3 ${isDark ? 'text-accent-light' : 'text-accent'}`}
-                    >
-                        Hello, I am
-                    </motion.p>
+                {/* Avatar */}
+                <motion.div
+                    initial={{ opacity: 0, scale: 0.8 }}
+                    animate={{ opacity: 1, scale: 1 }}
+                    transition={{ duration: 0.5, delay: 0.1 }}
+                    className="mb-8"
+                >
+                    <div className="w-28 h-28 mx-auto rounded-2xl gradient-bg flex items-center justify-center text-white text-3xl font-bold shadow-2xl shadow-primary/30 rotate-3 hover:rotate-0 transition-transform duration-300">
+                        PP
+                    </div>
+                </motion.div>
 
-                    <motion.h1
-                        initial={{ opacity: 0, y: 20 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        transition={{ delay: 0.3 }}
-                        className="text-5xl md:text-7xl font-bold mb-4"
-                    >
-                        <span className="gradient-text">Mayur Chavda</span>
-                    </motion.h1>
+                {/* Name */}
+                <motion.h1
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ delay: 0.2 }}
+                    className="text-5xl md:text-7xl font-black mb-4 tracking-tight"
+                >
+                    <span className="gradient-text">Prit Pansuriya</span>
+                </motion.h1>
 
-                    <motion.h2
-                        initial={{ opacity: 0, y: 20 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        transition={{ delay: 0.4 }}
-                        className={`text-xl md:text-2xl font-medium mb-6 ${isDark ? 'text-dark-muted' : 'text-light-muted'}`}
-                    >
-                        Dynamic Web Developer
-                    </motion.h2>
+                {/* Role */}
+                <motion.div
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ delay: 0.3 }}
+                    className={`text-xl md:text-2xl font-medium mb-6 font-mono ${isDark ? 'text-dark-muted' : 'text-light-muted'}`}
+                >
+                    <span className="text-accent">{'<'}</span>
+                    Full Stack Web Developer
+                    <span className="text-accent">{' />'}</span>
+                </motion.div>
 
-                    <motion.p
-                        initial={{ opacity: 0, y: 20 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        transition={{ delay: 0.5 }}
-                        className={`max-w-2xl mx-auto text-lg mb-4 leading-relaxed ${isDark ? 'text-dark-muted' : 'text-light-muted'}`}
-                    >
-                        Motivated Web Developer skilled in Laravel, PHP, MySQL, HTML, CSS, Bootstrap, and Livewire.
-                        Strong problem-solving and rapid learning abilities.
-                    </motion.p>
+                {/* Description */}
+                <motion.p
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ delay: 0.4 }}
+                    className={`max-w-xl mx-auto text-base md:text-lg mb-4 leading-relaxed ${isDark ? 'text-dark-muted' : 'text-light-muted'}`}
+                >
+                    Crafting elegant web experiences with Laravel, React, and modern technologies.
+                    Passionate about clean code and intuitive design.
+                </motion.p>
 
-                    <motion.div
-                        initial={{ opacity: 0, y: 20 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        transition={{ delay: 0.55 }}
-                        className={`flex items-center justify-center gap-2 mb-8 ${isDark ? 'text-dark-muted' : 'text-light-muted'}`}
-                    >
-                        <FiMapPin size={16} />
-                        <span>Rajkot, Gujarat</span>
-                    </motion.div>
+                {/* Location */}
+                <motion.div
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    transition={{ delay: 0.45 }}
+                    className={`flex items-center justify-center gap-1.5 mb-10 text-sm ${isDark ? 'text-dark-muted' : 'text-light-muted'}`}
+                >
+                    <FiMapPin size={14} />
+                    <span>Rajkot, Gujarat, India</span>
+                </motion.div>
 
-                    <motion.div
-                        initial={{ opacity: 0, y: 20 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        transition={{ delay: 0.6 }}
-                        className="flex items-center justify-center gap-4 mb-8"
+                {/* CTA Buttons */}
+                <motion.div
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ delay: 0.5 }}
+                    className="flex flex-wrap items-center justify-center gap-4 mb-10"
+                >
+                    <Link
+                        to="/projects"
+                        className="px-7 py-3 rounded-xl gradient-bg text-white font-semibold shadow-lg shadow-primary/30 hover:shadow-xl hover:shadow-primary/40 hover:-translate-y-0.5 transition-all duration-300"
                     >
-                        <Link
-                            to="/projects"
-                            className="px-8 py-3 rounded-xl gradient-bg text-white font-medium shadow-lg shadow-primary/30 hover:shadow-xl hover:shadow-primary/40 transition-all duration-300 hover:-translate-y-0.5"
-                        >
-                            View My Work
-                        </Link>
-                        <Link
-                            to="/contact"
-                            className={`px-8 py-3 rounded-xl font-medium border-2 transition-all duration-300 hover:-translate-y-0.5 ${isDark
-                                ? 'border-dark-border text-dark-text hover:border-primary hover:text-primary'
-                                : 'border-light-border text-light-text hover:border-primary hover:text-primary'
-                                }`}
-                        >
-                            Contact Me
-                        </Link>
-                    </motion.div>
+                        View My Work
+                    </Link>
+                    <Link
+                        to="/contact"
+                        className={`px-7 py-3 rounded-xl font-semibold border-2 transition-all duration-300 hover:-translate-y-0.5 ${isDark
+                            ? 'border-dark-border text-dark-text hover:border-primary hover:text-primary-light'
+                            : 'border-light-border text-light-text hover:border-primary hover:text-primary'
+                        }`}
+                    >
+                        Hire Me
+                    </Link>
+                    <a
+                        href="#"
+                        className={`flex items-center gap-2 px-7 py-3 rounded-xl font-semibold transition-all duration-300 hover:-translate-y-0.5 ${isDark ? 'bg-dark-card text-dark-muted hover:text-white' : 'bg-light-card text-light-muted hover:text-light-text'}`}
+                    >
+                        <FiDownload size={16} /> Resume
+                    </a>
+                </motion.div>
 
-                    <motion.div
-                        initial={{ opacity: 0 }}
-                        animate={{ opacity: 1 }}
-                        transition={{ delay: 0.7 }}
-                        className="flex items-center justify-center gap-4"
-                    >
-                        <a href="https://github.com/Mayur142-CODE" target="_blank" rel="noopener noreferrer"
-                            className={`p-3 rounded-xl transition-all duration-300 hover:-translate-y-1 ${isDark ? 'bg-dark-card text-dark-muted hover:text-white hover:bg-dark-border' : 'bg-light-card text-light-muted hover:text-light-text hover:bg-light-border'}`}>
-                            <FiGithub size={22} />
+                {/* Social Links */}
+                <motion.div
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    transition={{ delay: 0.6 }}
+                    className="flex items-center justify-center gap-3"
+                >
+                    {[
+                        { icon: <FiGithub size={20} />, href: 'https://github.com/pansuriyaprit709', label: 'GitHub' },
+                        { icon: <FiLinkedin size={20} />, href: 'https://linkedin.com', label: 'LinkedIn' },
+                    ].map((s) => (
+                        <a key={s.label} href={s.href} target="_blank" rel="noopener noreferrer"
+                            className={`flex items-center gap-2 px-4 py-2.5 rounded-xl text-sm font-medium transition-all duration-300 hover:-translate-y-1 hover:shadow-lg hover:shadow-primary/20 ${isDark ? 'bg-dark-card text-dark-muted hover:text-white hover:bg-dark-border' : 'bg-light-card text-light-muted hover:text-light-text hover:bg-white'}`}>
+                            {s.icon} {s.label}
                         </a>
-                        <a href="https://www.linkedin.com/in/mayur-chavda1214" target="_blank" rel="noopener noreferrer"
-                            className={`p-3 rounded-xl transition-all duration-300 hover:-translate-y-1 ${isDark ? 'bg-dark-card text-dark-muted hover:text-white hover:bg-dark-border' : 'bg-light-card text-light-muted hover:text-light-text hover:bg-light-border'}`}>
-                            <FiLinkedin size={22} />
-                        </a>
-                    </motion.div>
-                </div>
+                    ))}
+                </motion.div>
             </div>
 
             {/* Scroll indicator */}
@@ -130,7 +146,7 @@ const HomePage: React.FC = () => {
                     transition={{ repeat: Infinity, duration: 2 }}
                     className={isDark ? 'text-dark-muted' : 'text-light-muted'}
                 >
-                    <FiArrowDown size={24} />
+                    <FiArrowDown size={22} />
                 </motion.div>
             </motion.div>
         </section>
